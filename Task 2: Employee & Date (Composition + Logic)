@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class Date {
+public:
+    int day, month, year;
+};
+
+class Employee {
+private:
+    Date dob, doj;
+public:
+    void setDates(Date d1, Date d2) {
+        dob = d1;
+        doj = d2;
+    }
+
+    void checkStatus() {
+        if (2012 - doj.year <= 5)
+            cout << "Joined within last 5 years\n";
+        else
+            cout << "Joined more than 5 years ago\n";
+
+        if (2012 - dob.year < 40)
+            cout << "Age less than 40\n";
+        else
+            cout << "Age 40 or more\n";
+    }
+};
+
+int main() {
+    Date birth = {10, 5, 1975};
+    Date join = {1, 1, 2009};
+
+    Employee e;
+    e.setDates(birth, join);
+    e.checkStatus();
+
+    return 0;
+}
