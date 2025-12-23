@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class Computer {
+protected:
+    int wordsize, memory, storage, speed;
+public:
+    Computer() {}
+    Computer(int w, int m, int s, int sp) {
+        wordsize = w;
+        memory = m;
+        storage = s;
+        speed = sp;
+    }
+
+    void display() {
+        cout << wordsize << " " << memory << " " << storage << " " << speed << endl;
+    }
+};
+
+class Laptop : public Computer {
+private:
+    float length, width, height, weight;
+public:
+    Laptop(int w, int m, int s, int sp, float l, float wi, float h, float we)
+        : Computer(w, m, s, sp) {
+        length = l;
+        width = wi;
+        height = h;
+        weight = we;
+    }
+
+    void display() {
+        Computer::display();
+        cout << length << " " << width << " " << height << " " << weight << endl;
+    }
+};
+
+int main() {
+    Laptop l(64, 8, 512, 3200, 13.5, 9.0, 0.8, 1.4);
+    l.display();
+    return 0;
+}
