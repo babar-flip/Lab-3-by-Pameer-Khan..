@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class Person {
+protected:
+    int id;
+    string name, address;
+public:
+    Person() {}
+    Person(int i, string n, string a) {
+        id = i;
+        name = n;
+        address = a;
+    }
+
+    void input() {
+        cin >> id >> name >> address;
+    }
+
+    void display() {
+        cout << id << " " << name << " " << address << endl;
+    }
+};
+
+class Student : public Person {
+private:
+    int rollno;
+    float marks;
+public:
+    void input() {
+        Person::input();
+        cin >> rollno >> marks;
+    }
+
+    void display() {
+        Person::display();
+        cout << "Roll: " << rollno << " Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.input();
+    s.display();
+    return 0;
+}
